@@ -1,44 +1,18 @@
 package in.codeninja.opml;
 
-/** Represents a single feed in an OPML file. */
-public class OpmlElement {
-	private String text;
-	private String xmlUrl;
-	private String htmlUrl;
-	private String type;
+public interface OpmlElement {	
+	public String getTitle();
+	public void setTitle(String title);
+	
+	public String getText();
+	public void setText(String text);
 
-	public OpmlElement() {
-	}
+	public String getHtmlUrl();
+	public void setHtmlUrl(String htmlUrl);
 
-	public String getText() {
-		return text;
-	}
+	public String getXmlUrl();
+	public void setXmlUrl(String xmlUrl);
 
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public String getXmlUrl() {
-		return xmlUrl;
-	}
-
-	public void setXmlUrl(String xmlUrl) {
-		this.xmlUrl = xmlUrl;
-	}
-
-	public String getHtmlUrl() {
-		return htmlUrl;
-	}
-
-	public void setHtmlUrl(String htmlUrl) {
-		this.htmlUrl = htmlUrl;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
+	public String getType();
+	public void setType(String type);
 }

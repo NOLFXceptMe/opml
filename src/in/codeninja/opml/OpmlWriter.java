@@ -22,7 +22,7 @@ public class OpmlWriter {
 	 * @throws IllegalStateException
 	 * @throws IllegalArgumentException
 	 */
-	public void writeDocument(List<Feed> feeds, Writer writer)
+	public void writeDocument(List<OpmlElement> feeds, Writer writer)
 			throws IllegalArgumentException, IllegalStateException, IOException {
 		System.out.println(TAG + ": Starting to write document");
 
@@ -40,7 +40,7 @@ public class OpmlWriter {
 		xs.endTag(null, OpmlSymbols.HEAD);
 
 		xs.startTag(null, OpmlSymbols.BODY);
-		for (Feed feed : feeds) {
+		for (OpmlElement feed : feeds) {
 			xs.startTag(null, OpmlSymbols.OUTLINE);
 			xs.attribute(null, OpmlSymbols.TEXT, feed.getTitle());
 			xs.attribute(null, OpmlSymbols.TITLE, feed.getTitle());

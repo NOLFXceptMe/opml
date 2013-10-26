@@ -43,7 +43,7 @@ public class OpmlReader {
 					System.out.println(TAG + "Reached beginning of OPML tree.");
 				} else if (isInOpml && xpp.getName().equals(OpmlSymbols.OUTLINE)) {
 					System.out.println(TAG + "Found new Opml element");
-					OpmlElement element = new OpmlElement();
+					OpmlElement element = new OpmlElementImpl();
 
 					final String title = xpp.getAttributeValue(null, OpmlSymbols.TITLE);
 					if (title != null) {
