@@ -1,13 +1,11 @@
 package in.codeninja.opml;
 
-import io.filr.rss.model.Feed;
-
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 import org.kxml2.io.KXmlSerializer;
 import org.xmlpull.v1.XmlSerializer;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 /** Writes OPML documents. */
 public class OpmlWriter {
@@ -26,8 +24,8 @@ public class OpmlWriter {
 	 */
 	public void writeDocument(List<Feed> feeds, Writer writer)
 			throws IllegalArgumentException, IllegalStateException, IOException {
-			System.out.println(TAG + ": Starting to write document");
-		
+		System.out.println(TAG + ": Starting to write document");
+
 		XmlSerializer xs = new KXmlSerializer();
 		xs.setOutput(writer);
 
@@ -49,15 +47,15 @@ public class OpmlWriter {
 			if (feed.getType() != null) {
 				xs.attribute(null, OpmlSymbols.TYPE, feed.getType());
 			}
-			xs.attribute(null, OpmlSymbols.XMLURL, feed.getDownload_url());
-			if (feed.getLink() != null) {
-				xs.attribute(null, OpmlSymbols.HTMLURL, feed.getLink());
+			xs.attribute(null, OpmlSymbols.XMLURL, feed.getXmlUrl());
+			if (feed.getHtmlUrl() != null) {
+				xs.attribute(null, OpmlSymbols.HTMLURL, feed.getHtmlUrl());
 			}
 			xs.endTag(null, OpmlSymbols.OUTLINE);
 		}
 		xs.endTag(null, OpmlSymbols.BODY);
 		xs.endTag(null, OpmlSymbols.OPML);
 		xs.endDocument();
-			System.out.println(TAG + ": Finished writing document");
+		System.out.println(TAG + ": Finished writing document");
 	}
 }

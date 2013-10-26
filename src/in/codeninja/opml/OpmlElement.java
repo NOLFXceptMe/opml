@@ -8,7 +8,6 @@ public class OpmlElement {
 	private String type;
 
 	public OpmlElement() {
-
 	}
 
 	public String getText() {
