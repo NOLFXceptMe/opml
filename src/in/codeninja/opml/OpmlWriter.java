@@ -5,11 +5,15 @@ import java.io.Writer;
 import java.util.List;
 
 import org.kxml2.io.KXmlSerializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xmlpull.v1.XmlSerializer;
 
 /** Writes OPML documents. */
 public class OpmlWriter {
-	private static final String TAG = "OpmlWriter";
+    private Logger log = LoggerFactory.getLogger(this.getClass().getName());
+
+    private static final String TAG = "OpmlWriter";
 	private static final String ENCODING = "UTF-8";
 	private static final String OPML_VERSION = "2.0";
 	private static final String OPML_TITLE = "AntennaPod Subscriptions";
@@ -24,7 +28,7 @@ public class OpmlWriter {
 	 */
 	public void writeDocument(List<OpmlElement> feeds, Writer writer)
 			throws IllegalArgumentException, IllegalStateException, IOException {
-		System.out.println(TAG + ": Starting to write document");
+		log.info(TAG + ": Starting to write document");
 
 		XmlSerializer xs = new KXmlSerializer();
 		xs.setOutput(writer);
@@ -56,6 +60,6 @@ public class OpmlWriter {
 		xs.endTag(null, OpmlSymbols.BODY);
 		xs.endTag(null, OpmlSymbols.OPML);
 		xs.endDocument();
-		System.out.println(TAG + ": Finished writing document");
+		log.info(TAG + ": Finished writing document");
 	}
 }
