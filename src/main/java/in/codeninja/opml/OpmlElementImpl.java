@@ -50,4 +50,15 @@ public class OpmlElementImpl implements OpmlElement {
 	public String getTitle() {
 		return title;
 	}
+
+    @Override
+    public String toString() {
+        return "OpmlElementImpl{" +
+                "title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", xmlUrl='" + xmlUrl + '\'' +
+                ", htmlUrl='" + htmlUrl + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
