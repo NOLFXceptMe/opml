@@ -1,5 +1,4 @@
-opml
-====
+# opml [![Build Status](https://travis-ci.org/NOLFXceptMe/opml.svg?branch=master)](https://travis-ci.org/NOLFXceptMe/opml)
 
 Java library for parsing OPML files
 
