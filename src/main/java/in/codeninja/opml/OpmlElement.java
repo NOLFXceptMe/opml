@@ -1,18 +1,23 @@
 package in.codeninja.opml;
 
-public interface OpmlElement {	
-	public String getTitle();
-	public void setTitle(String title);
-	
-	public String getText();
-	public void setText(String text);
+public interface OpmlElement {
+    public String getTitle();
 
-	public String getHtmlUrl();
-	public void setHtmlUrl(String htmlUrl);
+    public void setTitle(String title);
 
-	public String getXmlUrl();
-	public void setXmlUrl(String xmlUrl);
+    public String getText();
 
-	public String getType();
-	public void setType(String type);
+    public void setText(String text);
+
+    public String getHtmlUrl();
+
+    public void setHtmlUrl(String htmlUrl);
+
+    public String getXmlUrl();
+
+    public void setXmlUrl(String xmlUrl);
+
+    public String getType();
+
+    public void setType(String type);
 }
