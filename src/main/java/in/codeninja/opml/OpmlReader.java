@@ -53,13 +53,15 @@ public class OpmlReader {
                         OpmlElement element = new OpmlElementImpl();
 
                         final String title = xpp.getAttributeValue(null, OpmlSymbols.TITLE);
+                        final String text = xpp.getAttributeValue(null, OpmlSymbols.TEXT);
                         if (title != null) {
                             log.debug(TAG + "Using title: " + title);
-                            element.setText(title);
+                            element.setTitle(title);
                         } else {
                             log.warn(TAG + "Title not found, using text");
-                            element.setText(xpp.getAttributeValue(null, OpmlSymbols.TEXT));
+                            element.setTitle(text);
                         }
+                        element.setText(xpp.getAttributeValue(null, OpmlSymbols.TEXT));
                         element.setXmlUrl(xpp.getAttributeValue(null, OpmlSymbols.XMLURL));
                         element.setHtmlUrl(xpp.getAttributeValue(null, OpmlSymbols.HTMLURL));
                         element.setType(xpp.getAttributeValue(null, OpmlSymbols.TYPE));
