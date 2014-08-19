@@ -23,7 +23,7 @@ public class OpmlReader {
     private boolean initComplete = false;
     private boolean isInOpml = false;
     private boolean parseComplete = true;
-    private ArrayList<OpmlElement> elementList;
+    private Map<String, OpmlElement> elementMap;
     private Stack<String> elementStack;
     private Map<String, List<String>> elementTree;
     private String currentFolder = ROOT_OUTLINE;
@@ -36,7 +36,7 @@ public class OpmlReader {
     public boolean init() {
         isInOpml = false;
         parseComplete = false;
-        elementList = null;
+        elementMap = null;
         elementStack = null;
         elementTree = null;
         currentFolder = ROOT_OUTLINE;
@@ -59,7 +59,7 @@ public class OpmlReader {
 
         elementTree = new HashMap<String, List<String>>();
         elementStack = new Stack<String>();
-        elementList = new ArrayList<OpmlElement>();
+        elementMap = new HashMap<String, OpmlElement>();
 
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -115,7 +115,7 @@ public class OpmlReader {
                             currentFolder = currentTag;
                             log.debug("Moving to new folder " + currentFolder);
                         }
-                        elementList.add(element);
+                        elementMap.put(element.getText(), element);
                     }
                     break;
                 case XmlPullParser.END_TAG:
@@ -146,12 +146,12 @@ public class OpmlReader {
     }
 
     /* Get the parsed OPML XML as a list of OpmlElement(s) */
-    public List<OpmlElement> getElementList() throws ParsingIncompleteException {
+    public Map<String, OpmlElement> getElementMap() throws ParsingIncompleteException {
         if (!parseComplete) {
             throw new ParsingIncompleteException();
         }
 
-        return elementList;
+        return elementMap;
     }
 
     /* Get the parsed OPML XML as a hash map of node-name vs children */
