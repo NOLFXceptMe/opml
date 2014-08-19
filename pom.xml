@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>in.condeninja.lib</groupId>
 	<artifactId>opml</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5</version>
 	<name>Java OPML parsing library</name>
 	<build>
 		<sourceDirectory>src/main/java/</sourceDirectory>
