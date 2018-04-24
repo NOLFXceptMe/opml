@@ -20,6 +20,8 @@
 	</build>
 	<properties>
 		<slf4jVersion>1.7.7</slf4jVersion>
+    		<maven.compiler.source>1.6</maven.compiler.source>
+    		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
